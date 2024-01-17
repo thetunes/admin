@@ -60,7 +60,7 @@ function confirmOrder(orderId) {
         .catch(error => {
             console.error('Confirmation Fetch Error:', error);
         });
-        location.reload();
+    location.reload();
 }
 
 function cancelOrder(orderId) {
@@ -86,7 +86,7 @@ function cancelOrder(orderId) {
         .catch(error => {
             console.error('Cancelation Fetch Error:', error);
         });
-        location.reload();
+    location.reload();
 }
 
 // Display orders in the table
@@ -116,10 +116,16 @@ function displayDetail(order) {
                     <h3 class="font-extrabold text-2xl">Ordered At</h3>
                     <span>${order.CreatedAt}</span>
                 </div>
-            </div>
-            <div class="relative overflow-x-auto py-6">
-                <h3 class="font-extrabold text-2xl">Status</h3>
-                <span>Complete</span>
+                <div class="relative overflow-x-auto py-6">
+                    <h3 class="font-extrabold text-2xl">Status</h3>
+                    <span>Complete</span>
+                </div>
+                <div class="relative overflow-x-auto py-6">
+                    <h3 class="font-extrabold text-2xl">Payment Receipt</h3>
+                    <a href="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                        <img class="w-auto h-80" src="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                    </a>
+                </div>
             </div>
             <div class="relative overflow-x-auto py-6">
                 <div class="text-center">
@@ -154,6 +160,12 @@ function displayDetail(order) {
                     <h3 class="font-extrabold text-2xl">Status</h3>
                     <span>Cancelled</span>
                 </div>
+                <div class="relative overflow-x-auto py-6">
+                    <h3 class="font-extrabold text-2xl">Payment Receipt</h3>
+                    <a href="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                        <img class="w-auto h-80" src="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                    </a>
+                </div>                
             </div>
         </div>
         `;
@@ -177,10 +189,17 @@ function displayDetail(order) {
                     <h3 class="font-extrabold text-2xl">Ordered At</h3>
                     <span>${order.CreatedAt}</span>
                 </div>
-            </div>
-            <div class="relative overflow-x-auto py-6">
-                <h3 class="font-extrabold text-2xl">Status</h3>
-                <span>Need to confitm</span>
+                <div class="relative overflow-x-auto py-6">
+                    <h3 class="font-extrabold text-2xl">Status</h3>
+                    <span>Need to confitm</span>
+                </div>
+                <div class="relative overflow-x-auto py-6">
+                    <h3 class="font-extrabold text-2xl">Payment Receipt</h3>
+                    <a href="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                        <img class="w-auto h-80" src="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                    </a>
+                </div>
+
             </div>
             <div class="relative overflow-x-auto py-6">
                 <div class="text-center">
