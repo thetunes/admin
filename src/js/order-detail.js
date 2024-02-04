@@ -139,6 +139,13 @@ function displayDetail(order) {
     tableBody.innerHTML = '';
 
     const data = document.createElement('div');
+    const formattedDate = new Date(order.CreatedAt).toLocaleString('en-US', {
+        month: 'long',
+        day: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
 
     // Fetch ticket title and customer username
     Promise.all([getTicketTitle(order.ticketid), getUsername(order.userid)])
@@ -161,8 +168,8 @@ function displayDetail(order) {
 
                     <div class="relative overflow-x-auto py-6">
                         <h3 class="font-extrabold text-2xl">Ordered At</h3>
-                        <span>${order.CreatedAt}</span>
-                    </div>
+                        <p>${formattedDate}.</p>
+                        </div>
                     <div class="relative overflow-x-auto py-6">
                         <h3 class="font-extrabold text-2xl">Status</h3>
                         <span>Complete</span>
@@ -201,8 +208,8 @@ function displayDetail(order) {
 
                     <div class="relative overflow-x-auto py-6">
                         <h3 class="font-extrabold text-2xl">Ordered At</h3>
-                        <span>${order.CreatedAt}</span>
-                    </div>
+                        <p>${formattedDate}.</p>
+                        </div>
                     <div class="relative overflow-x-auto py-6">
                         <h3 class="font-extrabold text-2xl">Status</h3>
                         <span>Cancelled</span>
@@ -234,8 +241,8 @@ function displayDetail(order) {
 
                     <div class="relative overflow-x-auto py-6">
                         <h3 class="font-extrabold text-2xl">Ordered At</h3>
-                        <span>${order.CreatedAt}</span>
-                    </div>
+                        <p>${formattedDate}.</p>
+                        </div>
                     <div class="relative overflow-x-auto py-6">
                         <h3 class="font-extrabold text-2xl">Status</h3>
                         <span>Need to confitm</span>
