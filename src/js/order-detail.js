@@ -59,6 +59,28 @@ function getTicketTitle(ticketId) {
         });
 }
 
+function getUsername(userid) {
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    return fetch(`http://34.128.102.98/api/user/${userid}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                return data.data.username;
+            } else {
+                console.error('API Error:', data.message);
+                return null;
+            }
+        })
+        .catch(error => {
+            console.error('Fetch Error:', error);
+            return null;
+        });
+}
+
 function confirmOrder(orderId) {
     var requestOptions = {
         method: 'POST',
@@ -118,17 +140,18 @@ function displayDetail(order) {
 
     const data = document.createElement('div');
 
-    // Fetch ticket title
-    getTicketTitle(order.ticketid).then(ticketTitle => {
-        if (order.status === "true") {
+    // Fetch ticket title and customer username
+    Promise.all([getTicketTitle(order.ticketid), getUsername(order.userid)])
+        .then(([ticketTitle, username]) => {
+            if (order.status === "true") {
             data.innerHTML = `
                 <div id="cards-body" class="bg-gray-900 w-full py-6 px-8 my-8 rounded-2xl">
                 <h1 class="font-extrabold text-3xl">Order Details</h1>
 
                 <div class="my-8">
                     <div class="relative overflow-x-auto py-6">
-                        <h3 class="font-extrabold text-2xl">Customer ID</h3>
-                        <span>${order.userid}</span>
+                        <h3 class="font-extrabold text-2xl">Customer Name</h3>
+                        <span>${username}</span>
                     </div>
 
                     <div class="relative overflow-x-auto py-6">
@@ -167,8 +190,8 @@ function displayDetail(order) {
 
                 <div class="my-8">
                     <div class="relative overflow-x-auto py-6">
-                        <h3 class="font-extrabold text-2xl">Customer ID</h3>
-                        <span>${order.userid}</span>
+                        <h3 class="font-extrabold text-2xl">Customer Name</h3>
+                        <span>${username}</span>
                     </div>
 
                     <div class="relative overflow-x-auto py-6">
@@ -200,8 +223,8 @@ function displayDetail(order) {
 
                 <div class="my-8">
                     <div class="relative overflow-x-auto py-6">
-                        <h3 class="font-extrabold text-2xl">Customer ID</h3>
-                        <span>${order.userid}</span>
+                        <h3 class="font-extrabold text-2xl">Customer Name</h3>
+                        <span>${username}</span>
                     </div>
 
                     <div class="relative overflow-x-auto py-6">
@@ -240,6 +263,9 @@ function displayDetail(order) {
             `;
         }
         tableBody.appendChild(data);
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
     });
 }
 
