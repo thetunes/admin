@@ -4,7 +4,7 @@ function getOrders() {
         redirect: 'follow'
     };
 
-    fetch('https://eclipse.herobuxx.me/api/order', requestOptions)
+    fetch('http://34.128.102.98/api/order', requestOptions)
         .then(response => {
             console.log('Raw Response:', response);
             return response.json();
@@ -76,7 +76,7 @@ function countOrders() {
         redirect: 'follow'
     };
 
-    fetch('https://eclipse.herobuxx.me/api/order/count', requestOptions)
+    fetch('http://34.128.102.98/api/order/count', requestOptions)
         .then(response => {
             console.log('Raw Response:', response);
             return response.json();

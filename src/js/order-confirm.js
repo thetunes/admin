@@ -4,7 +4,7 @@ function confirmOrder(orderId) {
         redirect: 'follow'
     };
 
-    fetch(`https://eclipse.herobuxx.me/api/order/done?id=${orderId}`, requestOptions)
+    fetch(`http://34.128.102.98/api/order/done?id=${orderId}`, requestOptions)
         .then(response => {
             console.log('Confirmation Response:', response);
             return response.json();
@@ -61,7 +61,7 @@ function getOrders() {
         redirect: 'follow'
     };
 
-    fetch('https://eclipse.herobuxx.me/api/order', requestOptions)
+    fetch('http://34.128.102.98/api/order', requestOptions)
         .then(response => {
             console.log('Raw Response:', response);
             return response.json();

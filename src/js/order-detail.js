@@ -20,7 +20,7 @@ function getDetail() {
         redirect: 'follow'
     };
 
-    fetch('https://eclipse.herobuxx.me/api/order/get?id=' + idValue, requestOptions)
+    fetch('http://34.128.102.98/api/order/get?id=' + idValue, requestOptions)
         .then(response => {
             console.log('Raw Response:', response);
             return response.json();
@@ -43,7 +43,7 @@ function confirmOrder(orderId) {
         redirect: 'follow'
     };
 
-    fetch(`https://eclipse.herobuxx.me/api/order/done?id=${orderId}`, requestOptions)
+    fetch(`http://34.128.102.98/api/order/done?id=${orderId}`, requestOptions)
         .then(response => {
             console.log('Confirmation Response:', response);
             return response.json();
@@ -69,7 +69,7 @@ function cancelOrder(orderId) {
         redirect: 'follow'
     };
 
-    fetch(`https://eclipse.herobuxx.me/api/order/cancel?id=${orderId}`, requestOptions)
+    fetch(`http://34.128.102.98/api/order/cancel?id=${orderId}`, requestOptions)
         .then(response => {
             console.log('Cancelation Response:', response);
             return response.json();
@@ -122,8 +122,8 @@ function displayDetail(order) {
                 </div>
                 <div class="relative overflow-x-auto py-6">
                     <h3 class="font-extrabold text-2xl">Payment Receipt</h3>
-                    <a href="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
-                        <img class="w-auto h-80" src="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                    <a href="http://34.128.102.98/api/order/show/payment?file=${idValue}.jpg">
+                        <img class="w-auto h-80" src="http://34.128.102.98/api/order/show/payment?file=${idValue}.jpg">
                     </a>
                 </div>
             </div>
@@ -162,8 +162,8 @@ function displayDetail(order) {
                 </div>
                 <div class="relative overflow-x-auto py-6">
                     <h3 class="font-extrabold text-2xl">Payment Receipt</h3>
-                    <a href="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
-                        <img class="w-auto h-80" src="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                    <a href="http://34.128.102.98/api/order/show/payment?file=${idValue}.jpg">
+                        <img class="w-auto h-80" src="http://34.128.102.98/api/order/show/payment?file=${idValue}.jpg">
                     </a>
                 </div>                
             </div>
@@ -195,8 +195,8 @@ function displayDetail(order) {
                 </div>
                 <div class="relative overflow-x-auto py-6">
                     <h3 class="font-extrabold text-2xl">Payment Receipt</h3>
-                    <a href="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
-                        <img class="w-auto h-80" src="https://eclipse.herobuxx.me/api/order/show/payment?file=${idValue}.jpg">
+                    <a href="http://34.128.102.98/api/order/show/payment?file=${idValue}.jpg">
+                        <img class="w-auto h-80" src="http://34.128.102.98/api/order/show/payment?file=${idValue}.jpg">
                     </a>
                 </div>
 

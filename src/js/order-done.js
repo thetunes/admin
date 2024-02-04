@@ -4,7 +4,7 @@ function cancelOrder(orderId) {
         redirect: 'follow'
     };
 
-    fetch(`https://eclipse.herobuxx.me/api/order/cancel?id=${orderId}`, requestOptions)
+    fetch(`http://34.128.102.98/api/order/cancel?id=${orderId}`, requestOptions)
         .then(response => {
             console.log('Cancelation Response:', response);
             return response.json();
@@ -61,7 +61,7 @@ function getOrders() {
         redirect: 'follow'
     };
 
-    fetch('https://eclipse.herobuxx.me/api/order', requestOptions)
+    fetch('http://34.128.102.98/api/order', requestOptions)
         .then(response => {
             console.log('Raw Response:', response);
             return response.json();
